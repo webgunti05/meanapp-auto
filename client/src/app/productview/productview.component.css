@@ -132,7 +132,7 @@ p.more_btn{margin:0;padding:10px 0;text-align:center}
 .tab_wrap{ display: block; padding: 0 20px;}
 .tab_nav{ list-style: none; padding: 0px; margin: 15px 0px 0px 0px;}
 .tab_nav li{ display: block; float: left; font-size: 14px; text-align: center;
-    padding: 5px 20px; cursor: pointer; font-weight: bold;
+    padding: 5px 2px; cursor: pointer; font-weight: bold;
 }
 .tab_data{ margin: 10px 0px; background-color: #fff; padding: 30px;}
 .overview h2 {
@@ -364,4 +364,7 @@ ul.srv_tags tittle {
     position: relative;
     color: #92929a;
 }
+
+span.active{ background-color: #00aff0; color: #fff; }
+.tab_nav li span{ padding: 5px 10px;}
 

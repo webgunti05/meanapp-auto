@@ -230,8 +230,8 @@
                       <div *ngFor="let b of searchBrands | filter : searchText" class="brd_filt">
                        
                         <div class="checkbox checkbox-1">
-                                <input type="checkbox" value="" id="check0">
-                                <label for="check0" class="fa fa-check"></label>{{b}}
+                                <input type="checkbox" id="{{b.id}}"  [(ngModel)]="b.checked" >
+                                <label for="{{b.id}}" class="fa fa-check"></label>{{b.brand}}
                         </div>
                 </div>
 
@@ -247,8 +247,8 @@
                           <div *ngFor="let c of searchCities | filter : searchText2" class="brd_filt">
                            
                             <div class="checkbox checkbox-1">
-                                    <input type="checkbox" value="" id="check0">
-                                    <label for="check0" class="fa fa-check"></label>{{c}}
+                                    <input type="checkbox" id="{{c.id}}" [(ngModel)]="c.checked">
+                                    <label for="{{c.id}}" class="fa fa-check"></label>{{c.city}}
                             </div>
                     </div>
     

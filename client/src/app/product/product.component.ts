@@ -20,13 +20,14 @@ export class ProductComponent implements OnInit {
   private open_bookapoint : boolean;
   private searchBrands : Array<any>;
   private searchCities : Array<any>;
+  name : string;
 
 
   constructor(private prodSvc : FilterService,
               private prolistSvc : ProductService,
               private router : Router) {
     this.User = {
-     
+      
     }
     this.dropOpen = false;
     this.open_bookapoint = false;
@@ -36,14 +37,29 @@ export class ProductComponent implements OnInit {
     this.serviceList = [" Maruti Suzuki", " Automobile Part Dealers", " Services-Ford", "Services-Honda", " Automobile Battery Dealers-Exide"];
     this.timings = ["02:00PM - 04:00PM", "03:00PM - 05:00PM", "04:00PM - 06:00PM"];
 
-    this.searchBrands = ["Maruthi Suzuki", "Hyundai", "Volkswagen", "Tata", "Toyota"];
-    this.searchCities = ["Hyderabad", "Delhi", "Mumbai", "Bangalore", "Ahmedabad"];
+    //this.searchBrands = ["Maruthi Suzuki", "Hyundai", "Volkswagen", "Tata", "Toyota"];
+    this.searchBrands = [
+      { id : 1, brand : 'Maruthi Suzuki', checked : false},
+      { id : 2, brand : 'Hyundai', checked : false},
+      { id : 3, brand : 'Volkswagen', checked : false},
+      { id : 4, brand : 'Tata', checked : false},
+      { id : 5, brand : 'Toyota', checked : false}
+    ];
+    this.searchCities = [
+      { id : 11, city : 'Hyderabad', checked : false},
+      { id : 22, city : 'Delhi', checked : false},
+      { id : 33, city : 'Mumbai', checked : false},
+      { id : 44, city : 'Bangalore', checked : false},
+      { id : 55, city : 'Ahmedabad', checked : false}
+    ];
+    //this.searchCities = ["Hyderabad", "Delhi", "Mumbai", "Bangalore", "Ahmedabad"];
    }
 
   ngOnInit() {
    
 
   }
+ 
   openBookApointment(){
     this.open_bookapoint = true;
   }

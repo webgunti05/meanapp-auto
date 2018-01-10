@@ -82,31 +82,43 @@ export class HeaderComponent{
     
       openShowTrail(){
           this.showTrail = !this.showTrail;
+          this.showMask = true;
           this.showBuy = false;
           this.showReg = false;
           this.showLogin = false;
       }
       openbuy(){
         this.showBuy = !this.showBuy;
-        this.showMask = !this.showMask;
         this.showTrail = false;
         this.showReg = false;
         this.showLogin = false;
+        this.showMask = true;
       }
       closebuy(){
         this.showBuy = false;
+        
       }
       openReg(){
           this.showReg = !this.showReg;
           this.showLogin = false;
           this.showBuy = false;
           this.showTrail = false;
+          this.showMask = true;
       }
       openLogin(){
           this.showLogin = !this.showLogin;
           this.showReg = false;
           this.showBuy = false;
           this.showTrail = false;
+          this.showMask = true;
+      }
+
+      closeMask(){
+          this.showLogin = false;
+          this.showReg = false;
+          this.showBuy = false;
+          this.showTrail = false;
+          this.showMask = false;
       }
 
     @HostListener("window:scroll", [])
