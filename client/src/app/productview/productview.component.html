@@ -1,0 +1,394 @@
+
+<div class="container-fluid prodct_wrap">
+    
+  <div class="col-12 zerocol">
+      <div class="radbtns_wrapper">
+           <form class="filter_form src-filter">
+              <form role="form">
+                  <fieldset>
+                      <div class="radio radio-info radio-inline">
+                          <input type="radio" id="inlineRadio1" value="General Service &amp; Repair" name="radioInline" [(ngModel)]="radioInline" checked="">
+                          <label for="inlineRadio1"> General Service &amp; Repair </label>
+                      </div>
+                      <div class="radio radio-inline">
+                          <input type="radio" id="inlineRadio2" value="Detailing" name="radioInline" [(ngModel)]="radioInline">
+                          <label for="inlineRadio2"> Detailing </label>
+                      </div>
+                      <div class="radio radio-inline">
+                          <input type="radio" id="inlineRadio3" value="Tyres &amp; Batteries" name="radioInline" [(ngModel)]="radioInline">
+                          <label for="inlineRadio3"> Tyres &amp; Batteries </label>
+                      </div>
+                      <div class="radio radio-inline">
+                          <input type="radio" id="inlineRadio4" value="Denting &amp; painting" name="radioInline" [(ngModel)]="radioInline">
+                          
+                          <label for="inlineRadio4"> Denting &amp; painting </label>
+                      </div>
+                      <div class="dropdown">
+                          <button type="button" (click)="openDropDownList()" class="dropbtn">Other Items 
+                            <span class="downarrow"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                          </button>
+                          <div id="myDropdown" class="dropdown-content" *ngIf="dropOpen">
+                              <a href="#">Link 1</a>
+                              <a href="#">Link 2</a>
+                              <a href="#">Link 3</a>
+                          </div>
+                      </div>
+                  </fieldset>
+              </form>
+           </form>
+      </div>
+  </div>
+
+</div>
+
+<!--products data-->
+
+<div class="container-fluid gray-bg">
+<div class="row">
+<div class="col-12">
+
+<div class="col-12 col-md-8">
+  <div class="matched_data">
+      <div class="nice-title">301 Matches found for: Autorox garages in <span>Hyderabad</span></div>
+
+      <select class="form-control sortselecter"  name="sortby">
+        <option value="">Default Sorting</option>
+        <option *ngFor="let f of filterList" value="{{f.value}}">{{f.text}}</option>
+      </select>
+      <div class="clr"></div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+<div class="row">
+  
+    <div class="col-12 col-md-9">
+      <div class="row inrpro_data">
+         <div class="col-12 col-md-3">
+          <img src="assets/images/grg_pic.png" width="100%">
+         </div>
+         <div class="col-12 col-md-6 brf">
+          <h3 class="prd_title"><a href="">Deccan Motor Cycle And Scooter Garage</a></h3>
+          <ul class="brf_view">
+            <li>
+                <div class="grg-star ">
+                    <div class="star">
+                        <i class="fa fa-star orange-color"></i>
+                        <i class="fa fa-star orange-color"></i>
+                        <i class="fa fa-star orange-color"></i>
+                        <i class="fa fa-star orange-color"></i>
+                        <i class="fa fa-star-o orange-color"></i>
+                    </div>
+                    <span class="ful-rat"> 4.5 / 5 (10 )</span>
+                </div>
+            </li>
+            <li><i class="fa fa-thumbs-o-up" aria-hidden="true"></i><span>120 Feedback for users</span> </li>
+        </ul>
+
+        <p><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+           Ambedkar Nagar Colony , Plot No: 269 Behind padamalya studio Road Number 78, FilmNagar , Jubilee Hills , Hyderabad , Telangana, Hyderabad, Telangana 500096
+          </p>
+
+          <div class="btn sc_item_button grg-btn app" (click)="openBookApointment()">Book Appointment</div>
+          <div class="btn sc_item_button grg-btn app">Call Now</div>
+         </div>
+         <div class="col-12 col-md-3 gmap_bg">
+          <iframe width="100%" height="200" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed/v1/place?q=Cyberborg%20Bodyart%2C%20Bangka%2C%20Jakarta%2C%20Indonesia&amp;key=AIzaSyCGz8WzqxQw1OwHWey3LCTjqKFG9feCxP4"></iframe>
+         </div>
+
+         <!--slidedown code-->
+         <div class="col-12 col-md-12 book_appwrap" *ngIf="open_bookapoint">
+          <h3 class="bkapt_hdng">Book an Appointment</h3>
+          <span (click)="closeBookApointment()" class="close_bookap">
+              <i class="fa fa-times" aria-hidden="true"></i>
+          </span>
+              
+                  <form class="form">
+                  <div class="row">
+                      <div class="col-12 col-md-4">
+                          <div class="form-group">
+                              <label>Prefered date of an appointment</label>
+                              <input type="date" class="form-control"  placeholder="DD/MM/YYYYY">
+                          </div>
+                      </div>
+
+                      <div class="col-12 col-md-4">
+                          <div class="form-group">
+                              <label>Prefered time of an appointment</label>
+                              <select class="form-control" >
+                                  <option value="">Select Time</option>
+                                  <option *ngFor="let t of timings">{{t}}</option>
+                              </select>
+                          </div>
+                      </div>
+
+                      <div class="col-12 col-md-4">
+                         <div class="form-group">
+                             <label>Waiting or Drop Of</label><br/>
+                             <fieldset>
+                              <div class="radio radio-info radio-inline">
+                                  <input type="radio" id="inlineRadio7" value="option7" name="radioInline" checked="">
+                                  <label for="inlineRadio7"> Self Drop </label>
+                              </div>
+                              <div class="radio radio-inline">
+                                  <input type="radio" id="inlineRadio8" value="option8" name="radioInline">
+                                  <label for="inlineRadio8"> Request to pickup </label>
+                              </div>
+                          </fieldset>
+                         </div>
+                      </div>
+
+                  </div>
+
+                  <div class="row">
+                      <div class="col-12 col-md-12">
+                          
+                          <div class="col-md-12 form-group">
+                                  <div class="col-md-12">
+                                      <div class="row">
+                                          <label class="control-label">Service Requested</label>
+                                      </div>
+                                  </div>
+                                  <div class="checkbox checkbox-1">
+                                      <input type="checkbox" value="" id="check31">
+                                      <label for="check31" class="fa fa-check"></label>Power steering
+                                  </div>
+                                  <div class="checkbox checkbox-1">
+                                      <input type="checkbox" value="" id="check32">
+                                      <label for="check32" class="fa fa-check"></label>Power steering
+                                  </div>
+                                  <div class="checkbox checkbox-1">
+                                      <input type="checkbox" value="" id="check33">
+                                      <label for="check33" class="fa fa-check"></label>Cd Player
+                                  </div>
+                                  <div class="checkbox checkbox-1">
+                                      <input type="checkbox" value="" id="check34">
+                                      <label for="check34" class="fa fa-check"></label>Alloy Wheels
+                                  </div>
+                                  <div class="checkbox checkbox-1">
+                                      <input type="checkbox" value="" id="check35">
+                                      <label for="check35" class="fa fa-check"></label>Tires &amp; Tire Repair
+                                  </div>
+                                  <div class="checkbox checkbox-1">
+                                      <input type="checkbox" value="" id="check36">
+                                      <label for="check36" class="fa fa-check"></label>Air Bags
+                                  </div>
+                                  <div class="checkbox checkbox-1">
+                                      <input type="checkbox" value="" id="check37">
+                                      <label for="check37" class="fa fa-check"></label>Bonnet Protector
+                                  </div>
+                                  <div class="checkbox checkbox-1">
+                                      <input type="checkbox" value="" id="check38">
+                                      <label for="check38" class="fa fa-check"></label>Air Conditioning
+                                  </div>
+                                  <div class="checkbox checkbox-1">
+                                      <input type="checkbox" value="" id="check39">
+                                      <label for="check39" class="fa fa-check"></label>All Wheels
+                                  </div>
+                                  <div class="col-md-3 pull-right">
+                                      <div class="btn appont-btn sc_item_button app">Confirm Appointment</div>
+                                  </div>
+                              </div>
+                      </div>
+                  </div>
+
+                  </form>
+             
+      </div>
+      <!--slidedown code ends-->
+      </div>
+
+
+
+
+      <div class="row tab_wrap">
+        <ul class="tab_nav">
+          <li (click)="openTabOver()">Overview</li>
+          <li  (click)="openTabSpec()">Specialities</li>
+          <li (click) = "openTabRating()">Feedback / Rating</li>
+          <div class="clr"></div>
+        </ul>
+
+        <div class="tab_data">
+            <div class="row overview" *ngIf="tabOver">
+                    <h2>Deccan Motor Cycle And Scooter Garage</h2>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                         when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                          but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+                           with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+                            Aldus PageMaker including versions of Lorem Ipsum.
+                   </p>
+
+                   <ul class="srv_tags">
+                        <h4 class="tit_wrap">Services</h4>
+                        <li><a href=""><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Maruti Suzuki</a></li>
+                        <li>
+                            <a href=""> <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Automobile Part Dealers</a></li>
+                        <li>
+                            <a href=""> <i class="fa fa-dot-circle-o" aria-hidden="true"></i> Services-Ford</a>
+                        </li>
+                        <li><a href=""><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Services-Honda</a></li>
+                        <li><a href=""><i class="fa fa-dot-circle-o" aria-hidden="true"></i> Automobile Battery Dealers-Exide</a></li>
+                    </ul>
+
+                    <ul class="timing">
+                            <h4 class="tit_wrap">Timing</h4>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i> MON - FRI
+                                    <span class="tm">10:30 Am - 2:00 PM</span>
+                                    <span class="tm">10:30 Am - 2:00 PM</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> Sat - Sun<span class="tm">10:30 Am - 2:00 PM</span></a>
+                            </li>
+                        </ul>
+            </div> 
+
+
+            <div class="tab-pane" id="a" *ngIf="tabSpe">
+                    <div class="tab-content">
+                        <div class="col-md-12 overview reviw ratting">
+                            <div class="row">
+                                <div class="tg-description">
+<p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+<ul class="tg-information">
+<li>Sed do eiusmod tempor incididunt ut labore et dolore</li>
+<li>Magna aliqua enim ad minim veniam</li>
+<li>Quis nostrud exercitation ullamco laboris nisi ut</li>
+<li>Aliquip ex ea commodo consequat aute dolor reprehenderit</li>
+<li>Voluptate velit esse cillum dolore eu fugiat nulla pariatur</li>
+<li>Excepteur sint occaecat cupidatat nonata proident</li>
+<li>Sunt in culpa qui officia deserunt mollit anim id est laborum</li>
+</ul>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam remmata aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos quistatoa ratione voluptatem sequi nesciunt. Neque porro okarat quisquam est, qui dolorem ipsum quia dolor sit amet, sotaaw consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore quasi voluptatem.</p>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam remmata aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos quistatoa ratione voluptatem sequi nesciunt. Neque porro okarat quisquam est, qui dolorem ipsum quia dolor sit amet, sotaaw consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore quasi voluptatem.</p>
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam remmata aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos quistatoa ratione voluptatem sequi nesciunt. Neque porro okarat quisquam est, qui dolorem ipsum quia dolor sit amet, sotaaw consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore quasi voluptatem.</p>
+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="tab-pane " *ngIf="tabRating">
+                        <div class="tab_content">
+                            <div class="col-md-12 overview reviw">
+                                <div class="row">
+                                    <div class="product-page-comments">
+                                        <h2>All Reviews</h2>
+                                        <ul>
+                                            <li>
+                                                <div class="product-comments">
+                                                    <img src="assets/images/author.jpg" alt="">
+                                                    <div class="product-comments-content">
+                                                        <p>
+                                                            <strong>Saikrishna </strong> - <span>8 Nov, 2017</span> 
+                                                            <span class="pro-comments-rating star">
+                                                                <i class="fa fa-star orange-color"></i>
+                                                                <i class="fa fa-star orange-color"></i>
+                                                                <i class="fa fa-star orange-color"></i>
+                                                                <i class="fa fa-star orange-color"></i>
+                                                                <i class="fa fa-star-o orange-color"></i>
+                                                            </span>
+                                                        </p>
+                                                        <div class="desc">
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero vulputate rutrum.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="review-form-wrapper">
+                                            <h3>Add a review</h3>
+                                            <div class="col-md-6">
+                                                <div class="form-horizontal">
+                                                <input type="text" [(ngModel)]="User.name" placeholder="your name">
+                                                <input type="email" [(ngModel)]="User.email"  placeholder="your email" >
+                                                <div class="your-rating">
+                                                    <h5>
+                                                    Your Rating</h5>
+                                                    <span><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star"></i>
+                                                </a></span><span><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star">
+                                                </i></a><a href="#"><i class="fa fa-star"></i></a></span><span><a href="#"><i class="fa fa-star">
+                                                </i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star">
+                                                </i></a><a href="#"><i class="fa fa-star"></i></a></span><span><a href="#"><i class="fa fa-star">
+                                                </i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star">
+                                                </i></a><a href="#"><i class="fa fa-star"></i></a><a href="#"><i class="fa fa-star">
+                                                </i></a></span>
+                                                </div>
+                                                <textarea id="product-message" [(ngModel)]="User.message"  cols="30" rows="10" placeholder="Massage"></textarea>
+                                                
+                                                <input type="submit" value="submit">
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div> 
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+      <div class="col-12 col-md-3 col-sm-3">
+          <div class="row inrpro_data2">
+              <h4 class="brd_tittle">Brand</h4>
+              
+                  <input [(ngModel)]="searchText" class="search_inp" placeholder="Search ">
+                  
+                    <div *ngFor="let b of searchBrands | filter : searchText" class="brd_filt">
+                     
+                      <div class="checkbox checkbox-1">
+                              <input type="checkbox" value="" id="check0">
+                              <label for="check0" class="fa fa-check"></label>{{b}}
+                      </div>
+              </div>
+
+              <h5 class="mr_brands"><a href="">Sea More Brands</a></h5>
+                 
+          </div>
+
+          <div class="row inrpro_data2">
+                  <h4 class="brd_tittle">Top Cities</h4>
+                  
+                      <input [(ngModel)]="searchText2" class="search_inp" placeholder="Search ">
+                      
+                        <div *ngFor="let c of searchCities | filter : searchText2" class="brd_filt">
+                         
+                          <div class="checkbox checkbox-1">
+                                  <input type="checkbox" value="" id="check0">
+                                  <label for="check0" class="fa fa-check"></label>{{c}}
+                          </div>
+                  </div>
+  
+                  <h5 class="mr_brands"><a href="">Sea More Cities</a></h5>
+                     
+              </div>
+
+              <div class="row inrpro_data2">
+                  <img src="assets/images/adds.jpg" width="100%" height="100%">
+              </div>
+
+      </div>
+      <!--search ends rightside-->
+
+  </div>
+
+
+
+</div>

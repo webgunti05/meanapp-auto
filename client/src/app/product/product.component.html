@@ -1,0 +1,270 @@
+<div class="container-fluid prodct_wrap">
+    
+    <div class="col-12 zerocol">
+        <div class="radbtns_wrapper">
+             <form class="filter_form src-filter">
+                <form role="form">
+                    <fieldset>
+                        <div class="radio radio-info radio-inline">
+                            <input type="radio" id="inlineRadio1" value="General Service &amp; Repair" name="radioInline" [(ngModel)]="radioInline" checked="">
+                            <label for="inlineRadio1"> General Service &amp; Repair </label>
+                        </div>
+                        <div class="radio radio-inline">
+                            <input type="radio" id="inlineRadio2" value="Detailing" name="radioInline" [(ngModel)]="radioInline">
+                            <label for="inlineRadio2"> Detailing </label>
+                        </div>
+                        <div class="radio radio-inline">
+                            <input type="radio" id="inlineRadio3" value="Tyres &amp; Batteries" name="radioInline" [(ngModel)]="radioInline">
+                            <label for="inlineRadio3"> Tyres &amp; Batteries </label>
+                        </div>
+                        <div class="radio radio-inline">
+                            <input type="radio" id="inlineRadio4" value="Denting &amp; painting" name="radioInline" [(ngModel)]="radioInline">
+                            
+                            <label for="inlineRadio4"> Denting &amp; painting </label>
+                        </div>
+                        <div class="dropdown">
+                            <button type="button" (click)="openDropDownList()" class="dropbtn">Other Items 
+                              <span class="downarrow"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                            </button>
+                            <div id="myDropdown" class="dropdown-content" *ngIf="dropOpen">
+                                <a href="#">Link 1</a>
+                                <a href="#">Link 2</a>
+                                <a href="#">Link 3</a>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+             </form>
+        </div>
+    </div>
+
+</div>
+
+<!--products data-->
+
+<div class="container-fluid gray-bg">
+<div class="row">
+<div class="col-12">
+
+  <div class="col-12 col-md-8">
+    <div class="matched_data">
+        <div class="nice-title">301 Matches found for: Autorox garages in <span>Hyderabad</span></div>
+
+        <select class="form-control sortselecter"  name="sortby">
+          <option value="">Default Sorting</option>
+          <option *ngFor="let f of filterList" value="{{f.value}}">{{f.text}}</option>
+        </select>
+        <div class="clr"></div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+<div class="row">
+    
+        <div class="col-12 col-md-9 col-sm-9">
+           <!--inner product data-->
+           <div class="row inrpro_data" *ngFor="let p of ProductList">
+                
+                        <div class="col-md-3">
+                              <img [src]="p.gricpath" width="100%" (click)="getPview()" >
+                              <p class="tp_cities">Top Cities : 
+                                  <span><i class="fa fa-car" aria-hidden="true"></i></span>
+                                  <span><i class="fa fa-wifi" aria-hidden="true"></i></span>
+                                  <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                              </p>
+                        </div>
+              
+                        <div class="col-12 col-md-6">
+                            <h3 class="prd_title"><a href="">{{p.prodTitle}}</a></h3>
+                            <p class="grg-brf">{{p.proddesc}} <span><a href="#"> Read More</a></span></p>
+                            <ul class="carz_list">
+                                <li *ngFor="let c of carsList"><a href="">{{c}}</a></li>
+                                <span><a href="#">View all 16 Services</a></span>
+                            </ul>
+
+                            <h4 class="srv_tags">{{p.prodSubTitle}}</h4>
+                            <ul class="service_lst">
+                                <li *ngFor="let s of serviceList"><a href=""><span><i class="fa fa-angle-right"></i></span>{{s}}</a></li>
+                            </ul>
+                        </div>
+              
+                        <div class="col-12 col-md-3 add_bor">
+                            <div class="grg-star">
+                                <span class="star">
+                                    <i class="fa fa-star orange-color"></i>
+                                    <i class="fa fa-star orange-color"></i>
+                                    <i class="fa fa-star orange-color"></i>
+                                    <i class="fa fa-star orange-color"></i>
+                                    <i class="fa fa-star-o orange-color"></i>
+                                </span>
+                                <span class="ful-rat"> 4.5 / 5 (10 )</span>
+                            </div>
+
+                            <p class="prdo_feed"><span><i class="fa fa-car" aria-hidden="true"></i></span>{{p.prodFeedback}}</p>
+                            <p class="prdo_feed"><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>{{p.prodLocation}} <a href="">Get Directions</a></p>
+                            <p class="prdo_feed"><span><i class="fa fa-clock-o" aria-hidden="true"></i></span>{{p.prodTiming}}</p>
+                            <p class="prdo_feed"><a href="">Show All Times</a></p>
+
+                            <div class="btn sc_item_button grg-btn app" (click)="openBookApointment()">Book Appointment</div>
+                            <div class="btn sc_item_button grg-btn">Call Now</div>
+                        </div>
+                   
+                        <!--slidedown code-->
+                        <div class="col-12 col-md-12 book_appwrap" *ngIf="open_bookapoint">
+                            <h3 class="bkapt_hdng">Book an Appointment</h3>
+                            <span (click)="closeBookApointment()" class="close_bookap">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </span>
+                                
+                                    <form class="form">
+                                    <div class="row">
+                                        <div class="col-12 col-md-4">
+                                            <div class="form-group">
+                                                <label>Prefered date of an appointment</label>
+                                                <input type="date" class="form-control"  placeholder="DD/MM/YYYYY">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-4">
+                                            <div class="form-group">
+                                                <label>Prefered time of an appointment</label>
+                                                <select class="form-control" >
+                                                    <option value="">Select Time</option>
+                                                    <option *ngFor="let t of timings">{{t}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-4">
+                                           <div class="form-group">
+                                               <label>Waiting or Drop Of</label><br/>
+                                               <fieldset>
+                                                <div class="radio radio-info radio-inline">
+                                                    <input type="radio" id="inlineRadio7" value="option7" name="radioInline" checked="">
+                                                    <label for="inlineRadio7"> Self Drop </label>
+                                                </div>
+                                                <div class="radio radio-inline">
+                                                    <input type="radio" id="inlineRadio8" value="option8" name="radioInline">
+                                                    <label for="inlineRadio8"> Request to pickup </label>
+                                                </div>
+                                            </fieldset>
+                                           </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-12 col-md-12">
+                                            
+                                            <div class="col-md-12 form-group">
+                                                    <div class="col-md-12">
+                                                        <div class="row">
+                                                            <label class="control-label">Service Requested</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="checkbox checkbox-1">
+                                                        <input type="checkbox" value="" id="check31">
+                                                        <label for="check31" class="fa fa-check"></label>Power steering
+                                                    </div>
+                                                    <div class="checkbox checkbox-1">
+                                                        <input type="checkbox" value="" id="check32">
+                                                        <label for="check32" class="fa fa-check"></label>Power steering
+                                                    </div>
+                                                    <div class="checkbox checkbox-1">
+                                                        <input type="checkbox" value="" id="check33">
+                                                        <label for="check33" class="fa fa-check"></label>Cd Player
+                                                    </div>
+                                                    <div class="checkbox checkbox-1">
+                                                        <input type="checkbox" value="" id="check34">
+                                                        <label for="check34" class="fa fa-check"></label>Alloy Wheels
+                                                    </div>
+                                                    <div class="checkbox checkbox-1">
+                                                        <input type="checkbox" value="" id="check35">
+                                                        <label for="check35" class="fa fa-check"></label>Tires &amp; Tire Repair
+                                                    </div>
+                                                    <div class="checkbox checkbox-1">
+                                                        <input type="checkbox" value="" id="check36">
+                                                        <label for="check36" class="fa fa-check"></label>Air Bags
+                                                    </div>
+                                                    <div class="checkbox checkbox-1">
+                                                        <input type="checkbox" value="" id="check37">
+                                                        <label for="check37" class="fa fa-check"></label>Bonnet Protector
+                                                    </div>
+                                                    <div class="checkbox checkbox-1">
+                                                        <input type="checkbox" value="" id="check38">
+                                                        <label for="check38" class="fa fa-check"></label>Air Conditioning
+                                                    </div>
+                                                    <div class="checkbox checkbox-1">
+                                                        <input type="checkbox" value="" id="check39">
+                                                        <label for="check39" class="fa fa-check"></label>All Wheels
+                                                    </div>
+                                                    <div class="col-md-3 pull-right">
+                                                        <div class="btn appont-btn sc_item_button app">Confirm Appointment</div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+
+                                    </form>
+                               
+                        </div>
+                        <!--slidedown code ends-->
+           </div>
+
+          
+ 
+<!--inner product data-->
+        </div>
+
+
+        <div class="col-12 col-md-3 col-sm-3">
+            <div class="row inrpro_data2">
+                <h4 class="brd_tittle">Brand</h4>
+                
+                    <input [(ngModel)]="searchText" class="search_inp" placeholder="Search ">
+                    
+                      <div *ngFor="let b of searchBrands | filter : searchText" class="brd_filt">
+                       
+                        <div class="checkbox checkbox-1">
+                                <input type="checkbox" value="" id="check0">
+                                <label for="check0" class="fa fa-check"></label>{{b}}
+                        </div>
+                </div>
+
+                <h5 class="mr_brands"><a href="">Sea More Brands</a></h5>
+                   
+            </div>
+
+            <div class="row inrpro_data2">
+                    <h4 class="brd_tittle">Top Cities</h4>
+                    
+                        <input [(ngModel)]="searchText2" class="search_inp" placeholder="Search ">
+                        
+                          <div *ngFor="let c of searchCities | filter : searchText2" class="brd_filt">
+                           
+                            <div class="checkbox checkbox-1">
+                                    <input type="checkbox" value="" id="check0">
+                                    <label for="check0" class="fa fa-check"></label>{{c}}
+                            </div>
+                    </div>
+    
+                    <h5 class="mr_brands"><a href="">Sea More Cities</a></h5>
+                       
+                </div>
+
+                <div class="row inrpro_data2">
+                    <img src="assets/images/adds.jpg" width="100%" height="100%">
+                </div>
+
+        </div>
+        <!--search ends rightside-->
+
+    </div>
+
+
+
+</div>

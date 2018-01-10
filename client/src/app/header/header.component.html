@@ -1,0 +1,700 @@
+<div class="header_wrapper">
+    <div class="header_left">
+            <span class="hamburg_menu"  (click)="toggleCollapse()">
+                    <span [hidden]="collapse=='open'" class="fa fa-bars fa-lg"></span>
+                    <span [hidden]="collapse=='closed'" class="fa fa-times fa-lg"></span>
+            </span>
+            <figure class="autorox_logo">
+                <a href="#"><img [src] = "siteName" width="100%" alt="AutoRox Logo" title="AutoRox"></a>
+            </figure>
+            <div class="clr"></div>
+    </div>
+    
+    <div class="header_right"  *ngIf="hideMenu">
+        <nav>
+            <ul>
+               
+                <li><a [routerLink]="'GetListedForFree'">Get Listed For Free</a></li>
+                <li (click)="toggleSubMenu()"><a>For Workshops <span><i class="fa fa-angle-down" aria-hidden="true"></i></span></a>
+                    <ul class="submenu">
+                        <li><a [routerLink]="'About'">About Us</a></li>
+                        <li><a [routerLink]="'Works'">Works</a></li>
+                    </ul>
+                </li>
+                <li><a [routerLink]="'QuickServices'">Quick Services</a></li>
+                <div class="clr"></div>
+            </ul>
+        </nav>
+
+        <ul class="hd_btnswrap" >
+               
+                <li class="hdr_buy" (click)="openbuy()"> Buy Now <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></li>
+                <li class="hdr_free" (click)="openShowTrail()">Free Trail <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></li>
+                
+                <li class="hd_downs ">Get the App</li>
+                <li class="hdr_auths" (click)="openReg()" ><span class="register-btn">Register</span> /
+                    <span class="login-btn" >LogIn</span></li>
+                    <div class="clr"></div>
+            </ul>
+
+
+        <div class="clr"></div>
+
+    </div>
+
+    <!--header right2 starts-->
+    <div class="rsp_searcher" (click)="openSearchForm()"><i class="fa fa-search hdsearch_icon" aria-hidden="true"></i></div>
+    <!--repsonsive search ends-->
+
+    <div class="header_right2" *ngIf="hdrMenu2">
+
+        <div class="header_frm">
+            <form class="myform2">
+                <input type="text" name="Location" class="hdrfrm_inp" placeholder="Location Name (GL Suggest )">
+                <input type="text" name="Location" class="hdrfrm_inp"  placeholder="Workshop name / Workshop Location / Services">
+                <button type="submit"(click)="goToSearch()" class="btn btn-primary srch_btn sbtn2"><i class="fa fa-search" aria-hidden="true"></i></button>
+                <div class="clr"></div>
+            </form>
+        </div>
+           
+    
+            <ul class="hd_btnswrap righter_authsbtns hide_regs">
+                <li class="hdr_auths" (click)="openReg()" ><span class="register-btn">Register</span> /
+                <span class="login-btn" >LogIn</span></li>
+                <div class="clr"></div>
+            </ul>
+            <div class="clr"></div>
+
+    </div>
+
+    <div class="mob_frm" *ngIf="clicked">
+            <div class="header_frm">
+                <form class="myform2">
+                    <input type="text" name="Location" class="hdrfrm_inp" placeholder="Location Name (GL Suggest )">
+                    <input type="text" name="Location" class="hdrfrm_inp"  placeholder="Workshop name / Workshop Location / Services">
+                    <button type="submit" (click)="goToSearch()" class="btn btn-primary srch_btn"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <div class="clr"></div>
+                </form>
+            </div>
+        </div>
+
+    
+
+
+    <div class="clr"></div>
+</div>
+
+
+<!--collapse header-->
+<div class="colpseMenu collapse open" [@collapse]="collapse" >
+        <ul class="hd_btnswrap">
+               
+                <li class="hdr_buy"  (click)="openbuy()" > Buy Now <span><i class="fa fa-shopping-cart" aria-hidden="true"></i></span></li>
+                <li class="hdr_free" (click)="openShowTrail()">Free Trail <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></li>
+                <li class="hd_downs ">Get the App</li>
+                <div class="clr"></div>
+            </ul>
+
+    <ul class="btm_menulinks">
+        <li><a [routerLink]="'GetListedForFree'">Get Listed For Free</a></li>
+        <li><a [routerLink]="'About'">About Us</a></li>
+        <li><a [routerLink]="'Works'">Works</a></li>
+        <li><a [routerLink]="'QuickServices'">Quick Services</a></li>
+        <div class="clr"></div>
+    </ul>
+</div>
+
+
+<div class="modal-content main_pop" *ngIf="showBuy">
+    <div class="col-md-12" id="first">
+        <div class="row">
+            <div class="col-md-6 free_form">
+                <h1>Subscribe to Autorox</h1>
+                <p>Already have a Autorox account? Already have an account? <a href="#">Add Another Garage</a></p>
+                <form action="">
+                    <div class="form-group col-lg-12">
+                        <div class="row">
+                            <label class="ius-label">Email Address (User ID)</label>
+                            <input type="text" name="" class="form-control ius-text-input" id="" value="" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <div class="row">
+                            <label class="ius-label">First Name</label>
+                            <input type="text" name="" class="form-control ius-text-input" id="" value="" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <div class="row">
+                            <label class="ius-label">Last Name</label>
+                            <input type="text" name="" class="form-control ius-text-input" id="" value="" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <div class="row">
+                            <label class="ius-label">Mobile Number</label>
+                            <input type="number" name="" class="form-control ius-text-input" id="" value="" required="required">
+                        </div>
+                    </div>
+                    <div class="sign_btn">
+                        <button id="" class="submit-btn" type="submit" name=""><span><i class="fa fa-lock" aria-hidden="true"></i></span>Sign Up</button>
+                    </div>
+                    <div class="terms">
+                        <p>By clicking Start Free Trial, you acknowledge you have read and agreed to the <a href="#">Terms of Service</a></p>
+                    </div>
+                </form>
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-md-6 free_disc">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="pkg_select">
+                            <h3>Select Subscription type:</h3>
+                            <section>
+                                <div class="checkbox checkbox-primary">
+                                    <label>
+                                        <input type="radio" id="checkbox" name="pacakage" value="1">
+                                        <span class="cr"><i class="cr-icon fa fa-check"></i></span>Super/TyrePro
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="radio" id="checkbox" name="pacakage" value="2">
+                                        <span class="cr"><i class="cr-icon fa fa-check"></i></span>Bumper
+                                    </label>
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="radio" id="checkbox" name="pacakage" value="3">
+                                        <span class="cr"><i class="cr-icon fa fa-check"></i></span>Jumbo
+                                    </label>
+                                </div>
+                            </section>
+
+                            <section class="pkg_offer">
+                                <div class="offer_amt">
+                                    <p><span class="pkg_act">Super/TypePro</span> at</p>
+                                    <p class="pkg_amt"><span>₹ 2,999*</span> for one year</p>
+                                    <p class="pkg_disc">MRP <span>₹ 4999 </span>| 40% OFF</p>
+                                </div>
+                            </section>
+
+                            <section class="pkg_spcl">
+                                <ul>
+                                    <li>
+                                        <span class="icon"><img src="assets/images/icon_1.png" alt="autorox"></span>
+                                        <p>Daily Report to Workshop Owner: Yes</p>
+                                    </li>
+                                    <li>
+                                        <span class="icon"><img src="assets/images/icon_2.png" alt="autorox"></span>
+                                        <p>Customer Notifications &amp; Reminders: Yes</p>
+                                    </li>
+                                    <li>
+                                        <span class="icon"><img src="assets/images/icon_3.png" alt="autorox"></span>
+                                        <p>Support: 5 calls / month for 1 month, Unlimited emails</p>
+                                    </li>
+                                    <li>
+                                        <span class="icon"><img src="assets/images/icon_4.png" alt="autorox"></span>
+                                        <p>Implementation FREE (Online)</p>
+                                    </li>
+                                </ul>
+                            </section>
+                            <section class="terms_cond">
+                                <p>&nbsp; &nbsp; * Price includes all applicable taxes.</p>
+                                <p id="two" (click)="showPricePop()" ><span>* * </span> Pacakage comparision chart <span id="price_compare">Click Here</span> </p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12" id="second" *ngIf="showPrice">
+        <div class="row">
+        <div class="pricing price_pop">
+           <div class="section-title">
+            <div class="">
+                <h2>Pricing Plans</h2>
+                <div class="close close_btn" id="close_btn" (click)="hidePricePop()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+            </div>
+            
+        </div>
+        <div class="pricing-container">
+            <div class="plan">
+                <div class="pricing-table-item">
+                    <div class="pt-head">
+                        <div class="pt-plan typro">Features</div>
+                        <!--<div class="caption">Starting At</div>-->
+                        <!--<div class="pt-price-tag"><span class="currency">Rs.</span>500<span>/Month* </span></div>-->
+
+                    </div>
+                    <div class="">
+                        <div class="plan-features ">
+                            <ul>
+                                <div class="pt-price-tag"><span class="currency"></span><span> </span></div>
+                                <li class="pln_disc"></li>
+                                <li>Up to 100 job cards / month</li>
+                                <li>Implementation FREE (Online)</li>
+                                <li>Training FREE (Online)</li>
+                                <li>Job Card Management: Yes</li>
+                                <li>Web Anywhere: Yes</li>
+                                <li>GST Billing: Yes</li>
+                                <li>Daily Report to Workshop Owner: Yes</li>
+                                <li>Customer Notifications &amp; Reminders: Yes</li>
+                                <li>Support: 2 calls / month for 1 month, Unlimited emails</li>
+                                <li>Promotional SMS: Yes (2000 SMS @ Rs. 500)</li>
+                                <li>Rich Android Tablet/Mobile Experience: Yes</li>
+                                <li>Insurance &amp; Billing: Yes</li>
+                                <li>Inventory: Yes</li>
+                                <li>Built-in Spare Parts Catalog: Yes</li>
+                                <li>Labour Pricing Catalog: Yes</li>
+                                <li>Quick Services: Yes</li>
+                                <li>Collision Repair: Yes</li>
+                                <li>Assign Technicians: Yes</li>
+                                <li>Capture Vehicle Pictures: Yes</li>
+                                <li>Take Vehicle Inventory: Yes</li>
+                                <li>Support: 20 calls / month for 1 month, Unlimited emails</li>
+                                <li>Updates: FREE</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="plan">
+                <div class="pricing-table-item">
+                    <div class="pt-head">
+                        <div class="pt-plan typro">Starter: TyrePro</div>
+                        <!--<div class="caption">Starting At</div>-->
+                        <div class="pt-price-tag"><span class="currency">Rs.</span>500<span>/Month* </span></div>
+
+                    </div>
+                    <div class="">
+                        <div class="plan-features ">
+                            <ul>
+                                <li class="pln_disc">Ideal for small workshops with Computer / PC availability who respect Customer time and are keen to provide quick parts &amp; labour estimation. Can go digital on a limited budget.</li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+             
+            <!--<div class="plan ">
+                <div class="pricing-table-item">
+                    <div class="pt-head">
+                        <div class="pt-plan starter">Starter</div>
+                        
+                        <div class="pt-price-tag"><span class="currency">Rs.</span>500<span>/Month* </span></div>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li>Ideal for small workshops with limited staff and Computer / PC availability. Can go digital on a limited budget.</li>
+                            <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                           <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                           <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                            <li>Web Anywhere: Yes</li>
+                            <li>GST Billing: Yes</li>
+                            <li>Daily Report to Workshop Owner: Yes</li>
+                            <li>Customer Notifications &amp; Reminders: Yes</li>
+                            <li>Support: 2 calls / month for 1 month, Unlimited emails</li>
+                            <li>Updates: FREE</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="plan featured">
+                <div class="pricing-table-item">
+                    <div class="pt-head ">
+                        <div class="pt-plan p-0 super">
+                            <span class="recom">recommended</span>
+                            <h3>Super</h3>
+                        </div>
+                       
+                        <div class="pt-price-tag"><span class="currency">Rs.</span>750<span>/Month* </span></div>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li>Ideal for small workshops with Computer / PC availability who respect Customer time and are keen to provide quick parts & labour estimation. Can go digital on a limited budget.</li>
+                            <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                           <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                            <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                            <li>Web Anywhere: Yes</li>
+                            <li>GST Billing: Yes</li>
+                            <li>Daily Report to Workshop Owner: Yes</li>
+                            <li>Customer Notifications &amp; Reminders: Yes</li>
+                            <li>Built-in Spare Parts Catalog: Yes</li>
+                            <li>Labour Pricing Catalog: Yes</li>
+                            <li>Support: 5 calls / month for 1 month, Unlimited emails</li>
+                            <li>Updates: FREE</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>-->
+
+            <div class="plan">
+                <div class="pricing-table-item">
+                    <div class="pt-head ">
+                        <div class="pt-plan p-b-0 bumper">Bumper <span>ENTERPRISE EDITION</span></div>
+                        <!--<div class="caption">Starting At</div>-->
+                        <div class="pt-price-tag"><span class="currency">Rs.</span>1,250<span>/Month* </span></div>
+
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li class="pln_disc">Ideal for workshops keen to transform Customer Experience via Mobile connectivity and conduct Insurance business.</li>
+                            <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="plan">
+                <div class="pricing-table-item">
+                    <div class="pt-head">
+                        <div class="jumbo pt-plan p-b-0 ">Jumbo <span>ENTERPRISE EDITION + INVENTORY</span></div>
+                        <!--<div class="caption">Starting At</div>-->
+                        <div class="pt-price-tag"><span class="currency">Rs.</span>1,850<span>/Month* </span></div>
+
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li class="pln_disc">Ideal for workshops who want to set a new standard in the car repair industry and be the very Best!</li>
+                            <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-times-circle" aria-hidden="true"></i></li>
+                                <li><i class="fa fa-check-circle" aria-hidden="true"></i></li>
+                        </ul>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    <div class="clearfix"></div>
+</div>
+</div>
+      </div>
+    <div class="clearfix"></div>
+
+</div>
+
+
+
+
+            <div class="modal-content" *ngIf="showTrail">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-6 free_form">
+                            <h1>Start Your 30-day free trail</h1>
+                            <p>Already have a Autorox account? Already have an account? <a href="#">Add Another Garage</a></p>
+                            <form action="">
+                                <div class="form-group col-lg-12">
+                                        <div class="row">
+                                                <label class="ius-label">Workshop Name</label>
+                                                <input type="text" name="" class="form-control ius-text-input" id="" value="" required="required">
+                                        </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                        <div class="row">
+                                                <label class="ius-label">Workshop type</label>
+                                                <select class="selectpicker">
+                                                                    <option value="">Select One</option>
+                                                                    <option value="2">Lorem ipsum</option>
+                                                                    <option value="1">Lorem ipsum</option>
+                                                                    <option value="1">Lorem ipsum</option>
+                                                                    </select>
+                                        </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                        <div class="row">
+                                                <label class="ius-label">Email Address (User ID)</label>
+                                                <input type="text" name="" class="form-control ius-text-input" id="" value="" required="required">
+                                            </div>
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <div class="row">
+                                        <label class="ius-label">First Name</label>
+                                        <input type="text" name="" class="form-control ius-text-input" id="" value="" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <div class="row">
+                                        <label class="ius-label">Last Name</label>
+                                        <input type="text" name="" class="form-control ius-text-input" id="" value="" required="required">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-12">
+                                    <div class="row">
+                                        <label class="ius-label">Mobile Number</label>
+                                        <input type="number" name="" class="form-control ius-text-input" id="" value="" required="required">
+                                    </div>
+                                </div>
+                                <div class="sign_btn">
+                                    <button id="" class="submit-btn" type="submit" name=""><span><i class="fa fa-lock" aria-hidden="true"></i></span>Start Free Trial</button>
+                                </div>
+                                <div class="terms">
+                                    <p>By clicking Start Free Trial, you acknowledge you have read and agreed to the <a href="#">Terms of Service</a></p>
+                                </div>
+                            </form>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-md-6 free_disc">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="pkg_select">
+                                        <h3>Free Trail includes:</h3>
+                                        <section class="pkg_spcl free_spcl">
+                                            <ul>
+                                                <li>
+                                                    <span class="icon icons"><img src="assets/images/icon_5.png" alt="autorox"></span>
+                                                    <p>Up to 100 job cards / month</p>
+                                                </li>
+                                                <li>
+                                                    <span class="icon icons"><img src="assets/images/icon_6.png" alt="autorox"></span>
+                                                    <p>Implementation FREE (Online)</p>
+                                                </li>
+                                                <li>
+                                                    <span class="icon icons"><img src="assets/images/icon_7.png" alt="autorox"></span>
+                                                    <p>Daily Report to Workshop Owner: Yes</p>
+                                                </li>
+                                                <li>
+                                                    <span class="icon icons"><img src="assets/images/icon_8.png" alt="autorox"></span>
+                                                    <p>Built-in Spare Parts Catalog: Yes</p>
+                                                </li>
+                                                <li>
+                                                    <span class="icon icons"><img src="assets/images/icon_9.png" alt="autorox"></span>
+                                                    <p>Support: 2 calls / month for 1 month, Unlimited emails</p>
+                                                </li>
+
+                                            </ul>
+                                        </section>
+
+                                        <section class="pkg_offer free_pack">
+                                            <div class="offer_amt">
+                                                <p>After trail, subscribe to Autorox at ₹ 4,999* Per Year </p>
+                                                <p class="pkg_det">* Pacakage details <a href="#">Click Here</a></p>
+
+                                            </div>
+                                        </section>
+                                        <section class=" free_pack supcal">
+                                            <div class="offer_amt">
+                                                <p>For special offers, call:
+                                                    <br> 1800 102 5599 (toll free) </p>
+                                            </div>
+                                        </section>
+
+                                        <section class="terms_cond">
+                                            <p>&nbsp; &nbsp; * Price includes all applicable taxes.</p>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"></div>
+
+            </div>
+
+
+
+            <div class="modal-content login_pop" *ngIf="showReg">
+                    <div class="modal-body log" [style.background-image] = "'url(\'assets/mot-test.jpg\')'" >
+                        <div class="col-md-12">
+                               <div class="row">
+                                     <div class="col-md-6 ">
+                                    <div class="row">
+                                        <div class="lg_soc ">
+                                            <h1 class="text-white">Hello </h1>
+                                            <p>Login with social media</p>
+                                            <div class="login-social text-center">
+                                                <ul>
+                                                    <li><a class="fb button lg_soc" href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
+                                                    <li><a class="gplus button lg_soc" href="#"><i class="fa fa-google-plus"></i> Twitter</a></li>
+                                                    <li><a class="twitter button lg_soc" href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
+                                                </ul>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 lg_form">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="signup">
+                                                <div class="gray-form clearfix">
+                                                <h2>Sign-Up</h2>
+                                                <p>Already got an account? <span class="sgn" (click)="openLogin()"> Sign in here</span></p>
+                                                <div class="form-group">
+                                                    <input id="UserName" class="form-control placeholder" type="text" placeholder="User name" name="web">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input id="FullName" class="form-control placeholder" type="text" placeholder="Full Name" name="web">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input id="phone" class="form-control placeholder" type="text" placeholder="Phone" name="web">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input id="email" class="form-control placeholder" type="text" placeholder="Email" name="web">
+                                                </div>
+                                                <div class="form-group">
+                                                    <input id="Password" class="form-control placeholder" type="password" placeholder="Password" name="Password">
+                                                </div>
+                                               <div class="row">
+                                                    <div class="col-md-12">
+                                                    <div class="checkbox checkbox-1 ">
+                                                    <input type="checkbox" value="" id="check36">
+                                                    <label for="check36" class="fa fa-check"></label>I agree to terms and conditions
+                                                </div>   
+                                                </div>
+                                                <div class="col-md-12">
+                                                     <button type="submit" data-dismiss="modal" aria-label="Close" id="" class="pull-right lg-btn">Sign-Up</button>  
+                                                 </div>   
+                                                </div>
+                                            </div>
+                                            </div>
+    
+                                        </div>
+                                    </div>
+                                </div>
+                               </div>
+                            </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>  
+   
+
+
+
+                <div class="modal-content login_pop" *ngIf="showLogin">
+                        <div class="modal-body log"  [style.background-image] = "'url(\'assets/mot-test.jpg\')'" >
+                            <div class="col-md-12">
+                                   <div class="row">
+                                         <div class="col-md-6 ">
+                                        <div class="row">
+                                            <div class="lg_soc ">
+                                                <h1 class="text-white">Hello </h1>
+                                                <p>Login with social media</p>
+                                                <div class="login-social text-center">
+                                                    <ul>
+                                                        <li><a class="fb button lg_soc" href="#"><i class="fa fa-facebook"></i> Facebook</a></li>
+                                                        <li><a class="gplus button lg_soc" href="#"><i class="fa fa-google-plus"></i> Twitter</a></li>
+                                                        <li><a class="twitter button lg_soc" href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
+                                                    </ul>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 lg_form">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="gray-form clearfix">
+                                                    <h2>Login</h2>
+                                                    <p>Don't have an accouont? <span class="sgn" (click)="openReg()"> Creat your account</span>, it takes less than a minute</p>
+                                                   <form action="" id="login">
+                                                         <div class="form-group">
+                                                        <input id="name" class="form-control placeholder" type="text" placeholder="User name / Phone" name="web">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input id="Password" class="form-control placeholder" type="password" placeholder="Password" name="Password">
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                        <div class="checkbox checkbox-1 ">
+                                                        <input type="checkbox" value="" id="check34">
+                                                        <label for="check34" class="fa fa-check"></label>Remember me
+                                                    </div>   
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                         <button type="submit" class="pull-right lg-btn">Log in</button>  
+                                                     </div>   
+                                                    </div>
+                                                    
+                                                   </form>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                   </div>
+                                </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+
+
+<div class="mask_shw" *ngIf="showMask"></div>
